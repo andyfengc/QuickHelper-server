@@ -1,22 +1,17 @@
 # Site settings
-title: Blade Theme
-description: A simple Jekyll blog theme developed by Mateus Medeiros 
-url: "http://mateussmedeiros.github.io/blade-theme/" # the base hostname & protocol for your site, e.g. http://example.com
+title: QuickHelper Project
+description: An innovative mobile app to assist people and encourage effective communication
+url: "https://andyfengc.github.io/QuickHelper-server/"
+port: 4001
 
 # Author settings
 author:
-  name     : Mateus Medeiros
-  bio      : Front End Developer passionate about new technologies. I am passionate about what I do and I try to learn more every day.
-  email    : mateus.sousamedeiros@gmail.com
-  twitter  : https://twitter.com/mateussousam
+  name     : Andy Feng
+  bio      : Full-stack Developer with 10+ years of experience using .Net, Java, Javascript. I am passionate about new IT technologies.
+  email    : andyfengc@gmail.com
 
 #SEO settings
 logo: /assets/img/img-blog.png/ # Site logo URL
-twitter_username: mateussousam # Twitter username
-facebook:
-    app_id: 1445035275808959 # App ID
-    publisher: https://www.facebook.com/mateus.sousamedeiros # URL of the Facebook page
-    admins: 100000229048939 # Facebook user ID that manages the page
 
 # Build settings
 permalink: /:title/
