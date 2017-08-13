@@ -74,7 +74,7 @@ There should be white spaces between paragraphs. There should be white spaces be
 
 ### Tables
 
-Language   | Code                 | Type
+Language  | Code                | Type
 ---------- | -------------------- | ---------
 HTML       | `<p> Hello </p>`     | Front End
 CSS        | `p { color: blue; }` | Front End
@@ -104,5 +104,3 @@ if __name__ =='__main__':
 ### Images
 
 Images are resized according to screen size.
-
-![Image](\assets\img\image-blog.png)

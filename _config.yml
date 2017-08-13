@@ -3,12 +3,14 @@ title: QuickHelper Project
 description: An innovative mobile app to assist people and encourage effective communication
 url: "https://andyfengc.github.io/QuickHelper-server/"
 port: 4001
+project_name: QuickHelper-server
 
 # Author settings
 author:
   name     : Andy Feng
   bio      : Full-stack Developer with 10+ years of experience using .Net, Java, Javascript. I am passionate about new IT technologies.
   email    : andyfengc@gmail.com
+  website: "https://andyfengc.github.io"
 
 #SEO settings
 logo: /assets/img/img-blog.png/ # Site logo URL
