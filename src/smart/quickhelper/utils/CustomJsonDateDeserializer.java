@@ -1,4 +1,4 @@
-package smart.quickhelper;
+package smart.quickhelper.utils;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -25,6 +25,6 @@ public class CustomJsonDateDeserializer extends JsonDeserializer<Date> {
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
-
     }
+	
 }

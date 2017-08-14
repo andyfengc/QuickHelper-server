@@ -1,8 +1,9 @@
-package quickhelper;
+package smart.quickhelper;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+
 
 @Path("/api/test")
 public class Test {
@@ -11,5 +12,5 @@ public class Test {
 
 	public String getData() {
 		return "success if you see this";
-	}
+		}
 }

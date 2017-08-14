@@ -12,8 +12,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
-import smart.quickhelper.CustomJsonDateDeserializer;
+import smart.quickhelper.utils.CustomJsonDateDeserializer;
+import smart.quickhelper.utils.CustomJsonDateSerializer;
 
 @Entity
 @Table(name = "Task")
@@ -69,7 +71,8 @@ public class Task {
 	public void setContent(String content) {
 		Content = content;
 	}
-
+	
+	@JsonSerialize(using=CustomJsonDateSerializer.class)
 	public Date getCreatedTime() {
 		return CreatedTime;
 	}
@@ -79,18 +82,22 @@ public class Task {
 		CreatedTime = createdTime;
 	}
 
+	@JsonSerialize(using=CustomJsonDateSerializer.class)
 	public Date getStartTime() {
 		return StartTime;
 	}
 
+	@JsonDeserialize(using = CustomJsonDateDeserializer.class)
 	public void setStartTime(Date startTime) {
 		StartTime = startTime;
 	}
 
+	@JsonSerialize(using=CustomJsonDateSerializer.class)
 	public Date getEndTime() {
 		return EndTime;
 	}
 
+	@JsonDeserialize(using = CustomJsonDateDeserializer.class)
 	public void setEndTime(Date endTime) {
 		EndTime = endTime;
 	}
