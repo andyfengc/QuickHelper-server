@@ -1,17 +1,10 @@
 [
   
     {
-      "title"    : "Example content",
+      "title"    : "Task API",
       "tags"     : "",
-      "url"      : "/example/",
-      "date"     : "31 Jan 2017"
-    } ,
-  
-    {
-      "title"    : "Welcome to Jekyll!",
-      "tags"     : "",
-      "url"      : "/welcome-to-jekyll/",
-      "date"     : "25 Jan 2017"
+      "url"      : "/task-api/",
+      "date"     : "13 Aug 2017"
     } 
   
 ]

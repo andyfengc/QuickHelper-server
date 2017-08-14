@@ -4,6 +4,7 @@ description: An innovative mobile app to assist people and encourage effective c
 url: "https://andyfengc.github.io/QuickHelper-server/"
 port: 4001
 project_name: QuickHelper-server
+server_url: http://quickhelperserver-andyfengc.rhcloud.com/quickhelper
 
 # Author settings
 author:
