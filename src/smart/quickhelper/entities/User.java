@@ -102,5 +102,29 @@ public class User {
 	public void setTasks(Set<Task> tasks) {
 		Tasks = tasks;
 	}
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "User")
+	@Transient
+	private Set<Message> SentMessages = new HashSet<>();
+
+	public Set<Message> getSentMessages() {
+		return SentMessages;
+	}
+
+	public void setSentMessages(Set<Message> sentMessages) {
+		SentMessages = sentMessages;
+	}
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "User")
+	@Transient
+	private Set<Message> ReceivedMessages = new HashSet<>();
+
+	public Set<Message> getReceivedMessages() {
+		return ReceivedMessages;
+	}
+
+	public void setReceivedMessages(Set<Message> receivedMessages) {
+		ReceivedMessages = receivedMessages;
+	}
 
 }

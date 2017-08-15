@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "Message")
@@ -26,10 +27,24 @@ public class Message {
 	private String Text;
 	private Date CreatedTime;
 
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne
 	public User Sender;
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne
 	public User Receiver;
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne
 	public Message ParentMessage;
+	@ManyToOne
+	public Task Task;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "User")
+	@Transient
+	private Set<Message> Messages = new HashSet<>();
+
+	public Set<Message> getMessages() {
+		return Messages;
+	}
+
+	public void setMessages(Set<Message> messages) {
+		Messages = messages;
+	}
 }

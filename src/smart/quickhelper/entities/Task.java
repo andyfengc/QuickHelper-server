@@ -1,6 +1,8 @@
 package smart.quickhelper.entities;
 
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -9,7 +11,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -140,6 +144,12 @@ public class Task {
 	public void setCategory(Category category) {
 		Category = category;
 	}
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "User")
+	@Transient
+	private Set<Message> Messages = new HashSet<>();
+
+
 	
 
 }
