@@ -3,6 +3,7 @@ title: QuickHelper Project
 description: a IT guy's blog
 baseurl: "/QuickHelper-server"
 url: "https://github.com/andyfengc" 
+server_url: http://quickhelperserver-andyfengc.rhcloud.com/quickhelper
 author: 
   name: Andy Feng
   github: https://github.com/andyfengc
