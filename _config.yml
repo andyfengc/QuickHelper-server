@@ -1,7 +1,7 @@
 # Site settings
 title: QuickHelper Project
 description: a IT guy's blog
-baseurl: ""
+baseurl: "QuickHelper-server"
 url: "https://github.com/andyfengc" 
 author: 
   name: Andy Feng
