@@ -1,0 +1,17 @@
+# Site settings
+title: QuickHelper Project
+description: a IT guy's blog
+baseurl: ""
+url: "https://github.com/andyfengc" 
+author: 
+  name: Andy Feng
+  github: https://github.com/andyfengc
+  website: https://andyfengc.github.io
+
+port: 4001
+
+markdown: kramdown
+highlighter: rouge
+github_username:  andyfengc
+
+# based on Tom Preston-Werner http://tom.preston-werner.com/
