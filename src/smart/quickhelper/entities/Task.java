@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -27,8 +28,9 @@ public class Task {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long Id;
-	private long AuthorId;
 	private long CategoryId;
+	private long AuthorId;
+
 	private String Title;
 	private String Content;
 	private Date CreatedTime;
@@ -45,19 +47,20 @@ public class Task {
 		Id = id;
 	}
 
-	public long getAuthorId() {
-		return AuthorId;
-	}
-
-	public void setAuthorId(long authorId) {
-		AuthorId = authorId;
-	}
 	public long getCategoryId() {
 		return CategoryId;
 	}
 
 	public void setCategoryId(long categoryId) {
 		CategoryId = categoryId;
+	}
+	
+	public long getAuthorId() {
+		return AuthorId;
+	}
+
+	public void setAuthorId(long authorId) {
+		AuthorId = authorId;
 	}
 
 	public String getTitle() {
@@ -123,18 +126,19 @@ public class Task {
 	}
 
 	@ManyToOne
+	@JoinColumn(name="AuthorId", insertable = false, updatable = false)
 	private User Author;
 
 	public User getAuthor() {
 		return Author;
 	}
-
+	
 	public void setAuthor(User author) {
 		Author = author;
-		this.setAuthorId(author.getId());
 	}
 	
 	@ManyToOne
+	@JoinColumn(name="CategoryId", insertable = false, updatable = false)
 	private Category Category;
 
 	public Category getCategory() {
@@ -148,8 +152,13 @@ public class Task {
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "User")
 	@Transient
 	private Set<Message> Messages = new HashSet<>();
-
-
 	
+	public Set<Message> getMessages() {
+		return Messages;
+	}
+
+	public void setMessages(Set<Message> messages) {
+		Messages = messages;
+	}
 
 }

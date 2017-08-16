@@ -117,14 +117,26 @@ public class User {
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "User")
 	@Transient
-	private Set<Message> ReceivedMessages = new HashSet<>();
-
-	public Set<Message> getReceivedMessages() {
+	private Set<MessageLine> ReceivedMessages = new HashSet<>();
+	
+	public Set<MessageLine> getReceivedMessages() {
 		return ReceivedMessages;
 	}
 
-	public void setReceivedMessages(Set<Message> receivedMessages) {
+	public void setReceivedMessages(Set<MessageLine> receivedMessages) {
 		ReceivedMessages = receivedMessages;
 	}
 
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "User")
+	@Transient
+	private Set<ThreadLine> ThreadLines = new HashSet<>();
+	
+	public Set<ThreadLine> getThreadLines() {
+		return ThreadLines;
+	}
+
+	public void setThreadLines(Set<ThreadLine> threadLines) {
+		ThreadLines = threadLines;
+	}
+	
 }

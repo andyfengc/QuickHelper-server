@@ -7,11 +7,11 @@
 		<!-- Database Connection Settings -->
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 		
-		<property name="connection.url">jdbc:mysql://127.10.61.2:3306/quickhelper?serverTimezone=America/New_York&amp;useUnicode=true&amp;characterEncoding=utf-8</property>
-		 
 <!-- 
-		<property name="connection.url">jdbc:mysql://127.0.0.1:3306/quickhelper?serverTimezone=America/New_York&amp;useUnicode=true&amp;characterEncoding=utf-8</property>
+		<property name="connection.url">jdbc:mysql://127.10.61.2:3306/quickhelper?serverTimezone=America/New_York&amp;useUnicode=true&amp;characterEncoding=utf-8</property>
 -->
+		 
+		<property name="connection.url">jdbc:mysql://127.0.0.1:3306/quickhelper2?serverTimezone=America/New_York&amp;useUnicode=true&amp;characterEncoding=utf-8</property>
 
 		<property name="connection.username">admin1V3Q22N</property>
 		<property name="connection.password">iKc_v-hjdqh7</property>
@@ -26,9 +26,12 @@
 		<!-- Drop the existing tables and create new one -->
 		<property name="hbm2ddl.auto">update</property>
 		<!-- Mention here all the model classes along with their package name -->
-		<mapping class="smart.quickhelper.entities.User" />
-		<mapping class="smart.quickhelper.entities.Message" />
-		<mapping class="smart.quickhelper.entities.Task" />
 		<mapping class="smart.quickhelper.entities.Category" />
+		<mapping class="smart.quickhelper.entities.User" />
+		<mapping class="smart.quickhelper.entities.Task" />
+		<mapping class="smart.quickhelper.entities.Thread" />
+		<mapping class="smart.quickhelper.entities.ThreadLine" />
+		<mapping class="smart.quickhelper.entities.Message" />
+		<mapping class="smart.quickhelper.entities.MessageLine" />
 	</session-factory>
 </hibernate-configuration>
