@@ -55,10 +55,10 @@ public class TaskController {
 	@Path("/tasks")
 	public Object AddTask(Task task) {
 		//
-		User author = this.userService.GetUserById(task.getAuthorId());
+		User author = this.userService.GetUserById(task.getAuthor().getId());
 		task.setAuthor(author);
 		//
-		Category category = this.categoryService.GetCategoryById(task.getCategoryId());
+		Category category = this.categoryService.GetCategoryById(task.getCategory().getId());
 		task.setCategory(category);
 		
 		this.taskService.AddTask(task);
@@ -101,10 +101,10 @@ public class TaskController {
 					.build();
 		}
 		//
-		User author = this.userService.GetUserById(task.getAuthorId());
+		User author = this.userService.GetUserById(task.getAuthor().getId());
 		selectedTask.setAuthor(author);
 		//
-		Category category = this.categoryService.GetCategoryById(task.getCategoryId());
+		Category category = this.categoryService.GetCategoryById(task.getCategory().getId());
 		selectedTask.setCategory(category);
 		//
 		selectedTask.setTitle(task.getTitle());

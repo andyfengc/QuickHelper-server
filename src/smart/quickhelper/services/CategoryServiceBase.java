@@ -13,8 +13,13 @@ public class CategoryServiceBase implements ICategoryService {
 
 	@Override
 	public void AddCategory(Category category) {
-		// TODO Auto-generated method stub
-		
+		try (SessionFactory sf = new Configuration().configure().buildSessionFactory()) {
+			try (Session session = sf.openSession()) {
+				session.beginTransaction();
+				session.save(category);
+				session.getTransaction().commit();
+			}
+		}
 	}
 
 	@Override
@@ -29,26 +34,42 @@ public class CategoryServiceBase implements ICategoryService {
 
 	@Override
 	public List<Category> GetAllCategories() {
-		// TODO Auto-generated method stub
-		return null;
+		try (SessionFactory sf = new Configuration().configure().buildSessionFactory()) {
+			try (Session session = sf.openSession()) {
+				List<Category> result = session.createCriteria(Category.class).list();
+				return result;
+			}
+		}
 	}
 
 	@Override
 	public void DeleteCategory(long categoryId) {
-		// TODO Auto-generated method stub
-		
+		Category category = GetCategoryById(categoryId);
+		if (category != null) {
+			DeleteCategory(category);
+		}
 	}
 
 	@Override
 	public void DeleteCategory(Category category) {
-		// TODO Auto-generated method stub
-		
+		try (SessionFactory sf = new Configuration().configure().buildSessionFactory()) {
+			try (Session session = sf.openSession()) {
+				session.beginTransaction();
+				session.delete(category);
+				session.getTransaction().commit();
+			}
+		}
 	}
 
 	@Override
 	public void UpdateCategory(Category category) {
-		// TODO Auto-generated method stub
-		
+		try (SessionFactory sf = new Configuration().configure().buildSessionFactory()) {
+			try (Session session = sf.openSession()) {
+				session.beginTransaction();
+				session.update(category);
+				session.getTransaction().commit();
+			}
+		}
 	}
 
 }

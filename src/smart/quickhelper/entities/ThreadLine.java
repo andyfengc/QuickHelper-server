@@ -18,10 +18,7 @@ public class ThreadLine {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long Id;
 	
-	private long ParticipantId;
-	
-	private long ThreadId;
-	
+
 	public long getId()	{
 		return Id;
 	}
@@ -29,21 +26,9 @@ public class ThreadLine {
 		Id = id;
 	}
 
-	public long getParticipantId() {
-		return ParticipantId;
-	}
-	public void setParticipantId(long participantId) {
-		ParticipantId = participantId;
-	}
-	public long getThreadId() {
-		return ThreadId;
-	}
-	public void setThreadId(long threadId) {
-		ThreadId = threadId;
-	}
 
 	@ManyToOne
-	@JoinColumn(name="ThreadId", insertable = false, updatable = false)
+	@JoinColumn(name="ThreadId")
 	private Thread Thread;
 	
 	public Thread getThread() {
@@ -54,7 +39,7 @@ public class ThreadLine {
 	}
 
 	@ManyToOne
-	@JoinColumn(name="ParticipantId", insertable = false, updatable = false)
+	@JoinColumn(name="ParticipantId")
 	private User Participant;
 	
 	public User getParticipant() {

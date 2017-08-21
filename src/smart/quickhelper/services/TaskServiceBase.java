@@ -48,10 +48,9 @@ public class TaskServiceBase implements ITaskService {
 	@Override
 	public void DeleteTask(long taskId) {
 		Task task = GetTaskById(taskId);
-		if (task == null) {
-			throw new NullPointerException("cannot find task by id - " + taskId);
-		}
-		DeleteTask(task);
+		if (task != null) {
+			DeleteTask(task);
+		}		
 	}
 
 	@Override

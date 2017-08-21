@@ -28,12 +28,10 @@ public class Task {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long Id;
-	private long CategoryId;
-	private long AuthorId;
 
 	private String Title;
-	private String Content;
 	private Date CreatedTime;
+	private String Content;
 	private Date StartTime;
 	private Date EndTime;
 	private double Price;
@@ -45,22 +43,6 @@ public class Task {
 
 	public void setId(long id) {
 		Id = id;
-	}
-
-	public long getCategoryId() {
-		return CategoryId;
-	}
-
-	public void setCategoryId(long categoryId) {
-		CategoryId = categoryId;
-	}
-	
-	public long getAuthorId() {
-		return AuthorId;
-	}
-
-	public void setAuthorId(long authorId) {
-		AuthorId = authorId;
 	}
 
 	public String getTitle() {
@@ -126,7 +108,7 @@ public class Task {
 	}
 
 	@ManyToOne
-	@JoinColumn(name="AuthorId", insertable = false, updatable = false)
+	@JoinColumn(name="AuthorId")
 	private User Author;
 
 	public User getAuthor() {
@@ -138,7 +120,7 @@ public class Task {
 	}
 	
 	@ManyToOne
-	@JoinColumn(name="CategoryId", insertable = false, updatable = false)
+	@JoinColumn(name="CategoryId")
 	private Category Category;
 
 	public Category getCategory() {

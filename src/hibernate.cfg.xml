@@ -16,7 +16,7 @@
 		<property name="connection.username">admin1V3Q22N</property>
 		<property name="connection.password">iKc_v-hjdqh7</property>
 		<!-- Connection Pool Size (built-in) -->
-		<property name="connection.pool.size">1</property>
+		<property name="connection.pool.size">20</property>
 		<!-- SQL Dialect -->
 		<property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
 		<!-- Disable the second-level cache -->

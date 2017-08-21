@@ -21,9 +21,6 @@ public class Message {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long Id;
-	private long SenderId;
-	private long TaskId;
-	private long ThreadId;
 	private String Text;
 	private Date CreatedTime;
 
@@ -33,30 +30,6 @@ public class Message {
 
 	public void setId(long id) {
 		Id = id;
-	}
-
-	public long getSenderId() {
-		return SenderId;
-	}
-
-	public void setSenderId(long senderId) {
-		SenderId = senderId;
-	}
-
-	public long getTaskId() {
-		return TaskId;
-	}
-
-	public void setTaskId(long taskId) {
-		TaskId = taskId;
-	}
-
-	public long getThreadId() {
-		return ThreadId;
-	}
-
-	public void setThreadId(long threadId) {
-		ThreadId = threadId;
 	}
 
 	public String getText() {
@@ -108,19 +81,19 @@ public class Message {
 	}
 	
 	@ManyToOne
-	@JoinColumn(name="SenderId", insertable = false, updatable = false)
+	@JoinColumn(name="SenderId")
 	private User Sender;
 	
 	@ManyToOne
-	@JoinColumn(name="TaskId", insertable = false, updatable = false)
+	@JoinColumn(name="TaskId")
 	private Task Task;
 	
 	@ManyToOne
-	@JoinColumn(name="ParentId", insertable=false, updatable=false)
+	@JoinColumn(name="ParentId")
 	private Message Parent;
 	
 	@ManyToOne
-	@JoinColumn(name="ThreadId", insertable = false, updatable = false)
+	@JoinColumn(name="ThreadId")
 	private Thread Thread;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "Message")

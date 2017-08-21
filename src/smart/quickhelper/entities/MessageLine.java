@@ -9,10 +9,17 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name = "MessageLine")
 public class MessageLine {
+	
+	public MessageLine() {
+		this.IsDeleted = false;
+		this.IsRead = false;
+		this.IsStared = false;
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long Id;
@@ -28,10 +35,6 @@ public class MessageLine {
 	private boolean IsDeleted;
 	
 	private Date DeletedTime;
-	
-	private long RecipientId;
-	
-	private long MessageId;
 	
 	public long getId() {
 		return Id;
@@ -89,28 +92,12 @@ public class MessageLine {
 		DeletedTime = deletedTime;
 	}
 
-	public long getRecipientId() {
-		return RecipientId;
-	}
-
-	public void setRecipientId(long recipientId) {
-		RecipientId = recipientId;
-	}
-
-	public long getMessageId() {
-		return MessageId;
-	}
-
-	public void setMessageId(long messageId) {
-		MessageId = messageId;
-	}
-
 	@ManyToOne
-	@JoinColumn(name="MessageId", insertable = false, updatable = false)
+	@JoinColumn(name="MessageId")
 	private Message Message;
 	
 	@ManyToOne
-	@JoinColumn(name="RecipientId", insertable = false, updatable = false)
+	@JoinColumn(name="RecipientId")
 	private User Recipient;
 	
 	public User getRecipient() {
