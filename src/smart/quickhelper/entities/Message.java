@@ -118,6 +118,48 @@ public class Message {
 	public void setChildMessages(Set<Message> childMessages) {
 		ChildMessages = childMessages;
 	}
-	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((CreatedTime == null) ? 0 : CreatedTime.hashCode());
+		result = prime * result + ((Parent == null) ? 0 : Parent.hashCode());
+		result = prime * result + ((Sender == null) ? 0 : Sender.hashCode());
+		result = prime * result + ((Text == null) ? 0 : Text.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Message other = (Message) obj;
+		if (CreatedTime == null) {
+			if (other.CreatedTime != null)
+				return false;
+		} else if (!CreatedTime.equals(other.CreatedTime))
+			return false;
+		if (Parent == null) {
+			if (other.Parent != null)
+				return false;
+		} else if (!Parent.equals(other.Parent))
+			return false;
+		if (Sender == null) {
+			if (other.Sender != null)
+				return false;
+		} else if (!Sender.equals(other.Sender))
+			return false;
+		if (Text == null) {
+			if (other.Text != null)
+				return false;
+		} else if (!Text.equals(other.Text))
+			return false;
+		return true;
+	}
 
 }

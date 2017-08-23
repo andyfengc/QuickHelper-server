@@ -50,5 +50,27 @@ public class Thread {
 	public void setMessages(Set<Message> messages) {
 		Messages = messages;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (Id ^ (Id >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Thread other = (Thread) obj;
+		if (Id != other.Id)
+			return false;
+		return true;
+	}
 	
 }

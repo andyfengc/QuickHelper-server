@@ -1,38 +1,24 @@
 package smart.quickhelper.entities;
 
-import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
 @Entity
-@Table(name = "Category")
-public class Category {
-	@javax.persistence.Id
+@Table(name = "Role")
+public class Role {
+	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long Id;
-	
 	private String Name;
-	
-	@ManyToOne
-	@JoinColumn(name="ParentId", insertable=false, updatable=false)
-	private Category Parent;
-
-	public Category getParent() {
-		return Parent;
-	}
-
-	public void setParent(Category parent) {
-		Parent = parent;
-	}
 
 	public long getId() {
 		return Id;
@@ -50,29 +36,18 @@ public class Category {
 		Name = name;
 	}
 
-	public Set<Task> getTasks() {
-		return Tasks;
-	}
-
-	public void setTasks(Set<Task> tasks) {
-		Tasks = tasks;
-	}
-
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "Category")
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "Roles")
 	@Transient
-	private Set<Task> Tasks = new HashSet<>();
-	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "Category")
-	@Transient
-	private Set<Category> ChildCategories = new HashSet<>();
+	private Set<User> Users;
 
-	public Set<Category> getChildCategories() {
-		return ChildCategories;
+	public Set<User> getUsers() {
+		return Users;
 	}
 
-	public void setChildCategories(Set<Category> childCategories) {
-		ChildCategories = childCategories;
-	}	
+	public void setUsers(Set<User> users) {
+		Users = users;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -89,7 +64,7 @@ public class Category {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Category other = (Category) obj;
+		Role other = (Role) obj;
 		if (Name == null) {
 			if (other.Name != null)
 				return false;
@@ -97,5 +72,5 @@ public class Category {
 			return false;
 		return true;
 	}
-	
+
 }

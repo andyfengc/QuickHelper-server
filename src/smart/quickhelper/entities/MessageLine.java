@@ -115,5 +115,36 @@ public class MessageLine {
 	public void setMessage(Message message) {
 		Message = message;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((Message == null) ? 0 : Message.hashCode());
+		result = prime * result + ((Recipient == null) ? 0 : Recipient.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		MessageLine other = (MessageLine) obj;
+		if (Message == null) {
+			if (other.Message != null)
+				return false;
+		} else if (!Message.equals(other.Message))
+			return false;
+		if (Recipient == null) {
+			if (other.Recipient != null)
+				return false;
+		} else if (!Recipient.equals(other.Recipient))
+			return false;
+		return true;
+	}
 	
 }

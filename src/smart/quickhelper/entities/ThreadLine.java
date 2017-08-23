@@ -26,7 +26,6 @@ public class ThreadLine {
 		Id = id;
 	}
 
-
 	@ManyToOne
 	@JoinColumn(name="ThreadId")
 	private Thread Thread;
@@ -48,4 +47,35 @@ public class ThreadLine {
 	public void setParticipant(User participant) {
 		Participant = participant;
 	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((Participant == null) ? 0 : Participant.hashCode());
+		result = prime * result + ((Thread == null) ? 0 : Thread.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ThreadLine other = (ThreadLine) obj;
+		if (Participant == null) {
+			if (other.Participant != null)
+				return false;
+		} else if (!Participant.equals(other.Participant))
+			return false;
+		if (Thread == null) {
+			if (other.Thread != null)
+				return false;
+		} else if (!Thread.equals(other.Thread))
+			return false;
+		return true;
+	}
+	
 }

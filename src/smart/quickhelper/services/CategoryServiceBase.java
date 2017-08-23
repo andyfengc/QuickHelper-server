@@ -9,36 +9,30 @@ import org.hibernate.cfg.Configuration;
 import smart.quickhelper.entities.Category;
 import smart.quickhelper.entities.User;
 
-public class CategoryServiceBase implements ICategoryService {
+public class CategoryServiceBase extends ServiceBase implements ICategoryService {
 
 	@Override
 	public void AddCategory(Category category) {
-		try (SessionFactory sf = new Configuration().configure().buildSessionFactory()) {
-			try (Session session = sf.openSession()) {
-				session.beginTransaction();
-				session.save(category);
-				session.getTransaction().commit();
-			}
+		try (Session session = getSessionFactory().openSession()) {
+			session.beginTransaction();
+			session.save(category);
+			session.getTransaction().commit();
 		}
 	}
 
 	@Override
 	public Category GetCategoryById(long categoryId) {
-		try (SessionFactory sf = new Configuration().configure().buildSessionFactory()) {
-			try (Session session = sf.openSession()) {
-				Category category = session.find(Category.class, categoryId);
-				return category;
-			}
+		try (Session session = getSessionFactory().openSession()) {
+			Category category = session.find(Category.class, categoryId);
+			return category;
 		}
 	}
 
 	@Override
 	public List<Category> GetAllCategories() {
-		try (SessionFactory sf = new Configuration().configure().buildSessionFactory()) {
-			try (Session session = sf.openSession()) {
-				List<Category> result = session.createCriteria(Category.class).list();
-				return result;
-			}
+		try (Session session = getSessionFactory().openSession()) {
+			List<Category> result = session.createCriteria(Category.class).list();
+			return result;
 		}
 	}
 
@@ -52,23 +46,19 @@ public class CategoryServiceBase implements ICategoryService {
 
 	@Override
 	public void DeleteCategory(Category category) {
-		try (SessionFactory sf = new Configuration().configure().buildSessionFactory()) {
-			try (Session session = sf.openSession()) {
-				session.beginTransaction();
-				session.delete(category);
-				session.getTransaction().commit();
-			}
+		try (Session session = getSessionFactory().openSession()) {
+			session.beginTransaction();
+			session.delete(category);
+			session.getTransaction().commit();
 		}
 	}
 
 	@Override
 	public void UpdateCategory(Category category) {
-		try (SessionFactory sf = new Configuration().configure().buildSessionFactory()) {
-			try (Session session = sf.openSession()) {
-				session.beginTransaction();
-				session.update(category);
-				session.getTransaction().commit();
-			}
+		try (Session session = getSessionFactory().openSession()) {
+			session.beginTransaction();
+			session.update(category);
+			session.getTransaction().commit();
 		}
 	}
 

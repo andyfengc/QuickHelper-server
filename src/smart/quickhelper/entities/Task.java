@@ -143,4 +143,64 @@ public class Task {
 		Messages = messages;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((Address == null) ? 0 : Address.hashCode());
+		result = prime * result + ((Author == null) ? 0 : Author.hashCode());
+		result = prime * result + ((CreatedTime == null) ? 0 : CreatedTime.hashCode());
+		result = prime * result + ((EndTime == null) ? 0 : EndTime.hashCode());
+		long temp;
+		temp = Double.doubleToLongBits(Price);
+		result = prime * result + (int) (temp ^ (temp >>> 32));
+		result = prime * result + ((StartTime == null) ? 0 : StartTime.hashCode());
+		result = prime * result + ((Title == null) ? 0 : Title.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Task other = (Task) obj;
+		if (Address == null) {
+			if (other.Address != null)
+				return false;
+		} else if (!Address.equals(other.Address))
+			return false;
+		if (Author == null) {
+			if (other.Author != null)
+				return false;
+		} else if (!Author.equals(other.Author))
+			return false;
+		if (CreatedTime == null) {
+			if (other.CreatedTime != null)
+				return false;
+		} else if (!CreatedTime.equals(other.CreatedTime))
+			return false;
+		if (EndTime == null) {
+			if (other.EndTime != null)
+				return false;
+		} else if (!EndTime.equals(other.EndTime))
+			return false;
+		if (Double.doubleToLongBits(Price) != Double.doubleToLongBits(other.Price))
+			return false;
+		if (StartTime == null) {
+			if (other.StartTime != null)
+				return false;
+		} else if (!StartTime.equals(other.StartTime))
+			return false;
+		if (Title == null) {
+			if (other.Title != null)
+				return false;
+		} else if (!Title.equals(other.Title))
+			return false;
+		return true;
+	}
+
 }

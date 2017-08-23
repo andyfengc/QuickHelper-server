@@ -1,13 +1,14 @@
 package smart.quickhelper.services;
 
+import java.util.Collection;
 import java.util.List;
 
 import smart.quickhelper.entities.Task;
 
 public interface ITaskService {
-	public List<Task> GetAllTasks();
+	public Collection<Task> GetAllTasks();
 
-	public List<Task> GetTasksByAuthor(long authorId);
+	public Collection<Task> GetTasksByAuthor(long authorId);
 
 	public void AddTask(Task task);
 
@@ -24,5 +25,5 @@ public interface ITaskService {
 	 * @param q
 	 * @return
 	 */
-	public List<Task> SearchTasks(String q);
+	public Collection<Task> SearchTasks(String q);
 }

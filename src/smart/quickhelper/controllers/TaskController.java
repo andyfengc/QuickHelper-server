@@ -1,6 +1,7 @@
 package smart.quickhelper.controllers;
 
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
@@ -45,7 +46,7 @@ public class TaskController {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
 	@Path("/tasks")
-	public List<Task> GetAllTasks() {
+	public Collection<Task> GetAllTasks() {
 		return taskService.GetAllTasks();
 	}
 
@@ -82,8 +83,8 @@ public class TaskController {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON + ";charset=utf-8")
 	@Path("/users/{id}/tasks")
-	public List<Task> GetTasksByUser(@PathParam("id") long id){
-		List<Task> tasks = this.taskService.GetTasksByAuthor(id);
+	public Collection<Task> GetTasksByUser(@PathParam("id") long id){
+		Collection<Task> tasks = this.taskService.GetTasksByAuthor(id);
 		return tasks;
 	}
 	

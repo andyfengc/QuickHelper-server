@@ -1,6 +1,7 @@
 package smart.quickhelper.controllers;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -39,7 +40,7 @@ public class MessageController {
 	private ITaskService taskService = new TaskServiceBase();
 
 	@GET
-	@Path("/users/{userId}/messages")
+	@Path("/users/{userId}/messages/inbox")
 	public Response GetInboxMessagesByUser(@PathParam("userId") long userId) {
 		//
 		User user = this.userService.GetUserById(userId);
@@ -49,8 +50,22 @@ public class MessageController {
 			}).type(MediaType.APPLICATION_JSON).build();
 		}
 		//
-		List<Message> messages = this.messageService.GetReceivedMessagesByUser(userId).stream()
-				.sorted((i1, i2) -> i1.getCreatedTime().compareTo(i2.getCreatedTime())).collect(Collectors.toList());
+		Collection<Message> messages = this.messageService.GetReceivedMessagesByUser(userId);
+		return Response.status(Response.Status.OK).entity(messages).type(MediaType.APPLICATION_JSON).build();
+	}
+	
+	@GET
+	@Path("/users/{userId}/messages/sent")
+	public Response GetSendMessagesByUser(@PathParam("userId") long userId) {
+		//
+		User user = this.userService.GetUserById(userId);
+		if (user == null) {
+			return Response.status(Response.Status.NOT_FOUND).entity(new Object() {
+				public String message = "cannot find user by id - " + userId;
+			}).type(MediaType.APPLICATION_JSON).build();
+		}
+		//
+		Collection<Message> messages = this.messageService.GetSentMessagesByUser(userId);
 		return Response.status(Response.Status.OK).entity(messages).type(MediaType.APPLICATION_JSON).build();
 	}
 
@@ -144,4 +159,6 @@ public class MessageController {
 		}
 		return Response.ok().build();
 	}
+	
+	
 }

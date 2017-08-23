@@ -1,5 +1,6 @@
 package smart.quickhelper.services;
 
+import java.util.Collection;
 import java.util.List;
 
 import javax.transaction.NotSupportedException;
@@ -22,31 +23,33 @@ public interface IMessageService {
 	
 	public void ForwardMessage(User sender, List<User> recipients, Message parent, Message message) throws MessageException;
 
-	public List<Message> GetMessagesByUserAndThread(long userId, long threadId);
+	public Collection<Message> GetMessagesByUserAndThread(long threadId);
 
-	public List<Message> GetAllMessagesByUser(long userId);
+	public Collection<Message> GetAllMessagesByUser(long userId);
 
-	public List<Message> GetReceivedMessagesByUser(long userId);
+	public Collection<Message> GetReceivedMessagesByUser(long userId);
 
 	public Message GetFirstMessageByThread(long threadId);
 
-	public List<Message> GetSentMessagesByUser(long userId);
+	public Collection<Message> GetSentMessagesByUser(long userId);
 
-	public List<Thread> GetThreadsByTask(long taskId);
+	public Collection<Thread> GetThreadsByTask(long taskId);
 
-	public List<Message> GetMessagesByTask(long taskId);
+	public Collection<Message> GetMessagesByTask(long taskId);
 
-	public List<Message> GetMessagesByThread(long threadId);
+	public Collection<Message> GetMessagesByThread(long threadId);
 
-	public List<Thread> GetParticipatedThreadsByUser(long userId);
+	public Collection<Thread> GetParticipatedThreadsByUser(long userId);
+	
+	public Thread GetThreadById(long threadId);
 
-	public List<Message> GetParticipatedFirstMessagesByUser(long userId);
+	public Collection<Message> GetParticipatedFirstMessagesByUser(long userId);
 
-	public List<Message> GetFirstMessagesInitiatedByUser(long userId);
+	public Collection<Message> GetFirstMessagesInitiatedByUser(long userId);
 
-	public List<Thread> GetThreadsByUser(long userId);
+	public Collection<Thread> GetThreadsByUser(long userId);
 
-	public List<Message> GetFirstMessagesByUser(long userId);
+	public Collection<Message> GetFirstMessagesByUser(long userId);
 
 	public Message GetMessageById(long messageId);
 
