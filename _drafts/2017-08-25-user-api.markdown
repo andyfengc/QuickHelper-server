@@ -1,0 +1,46 @@
+---
+layout: post
+title:  "User API"
+date:   2017-08-25 15:00:09 -0200
+permalink: 
+---
+
+## URL
+
+{{ site.server_url }}
+
+## Get all users
+`
+GET /api/users
+`
+
+
+## Get a user by id
+`
+GET /api/users/:id
+`
+
+
+## Register a user
+`
+POST /api/users
+`
+
+## Update a user ##
+`
+PUT /api/users/:id
+`
+## Modify a user ##
+`
+PUT /api/users/:id
+`
+## Modify password ##
+`
+PUT 
+`
+
+## Login a user ##
+`
+PUT 
+`
+username/password

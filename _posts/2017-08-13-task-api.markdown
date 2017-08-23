@@ -14,7 +14,7 @@ permalink:
 GET /api/tasks
 `
 
-## Response
+### Response
 
 {% highlight json %}
 
@@ -61,7 +61,7 @@ GET /api/tasks/:id
 
 - :id: task unique identifier
 
-## Response
+### Response
 
 {% highlight json %}
 
@@ -101,7 +101,7 @@ GET /api/tasks/:id
 POST /api/tasks
 `
 
-## Request
+### Request
 {% highlight json %}
 {
 	"title" : "找装修师傅",
@@ -115,7 +115,7 @@ POST /api/tasks
 }
 {% endhighlight %}
 
-## Response
+### Response
 
 {% highlight json %}
 {
